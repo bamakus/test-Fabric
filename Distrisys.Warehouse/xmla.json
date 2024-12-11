@@ -1,0 +1,217 @@
+{
+  "name": "{{Dataset_Name}}",
+  "compatibilityLevel": 1604,
+  "model": {
+    "name": "{{Dataset_Name}}",
+    "culture": "en-US",
+    "collation": "Latin1_General_100_BIN2_UTF8",
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "DimClient",
+        "sourceLineageTag": "[dbo].[DimClient]",
+        "columns": [
+          {
+            "name": "Client_PK",
+            "dataType": "int64",
+            "sourceColumn": "Client_PK",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "Client_PK",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "GeographieClient_FK",
+            "dataType": "int64",
+            "sourceColumn": "GeographieClient_FK",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "GeographieClient_FK",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "ClientCode",
+            "dataType": "string",
+            "sourceColumn": "ClientCode",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "ClientCode",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Client",
+            "dataType": "string",
+            "sourceColumn": "Client",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Client",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "TypeClient",
+            "dataType": "string",
+            "sourceColumn": "TypeClient",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "TypeClient",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "SegmentationClient",
+            "dataType": "string",
+            "sourceColumn": "SegmentationClient",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "SegmentationClient",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "lettre UNICODE",
+            "dataType": "string",
+            "sourceColumn": "lettre UNICODE",
+            "sourceProviderType": "char",
+            "sourceLineageTag": "lettre UNICODE",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Lettre ASCII",
+            "dataType": "string",
+            "sourceColumn": "Lettre ASCII",
+            "sourceProviderType": "char",
+            "sourceLineageTag": "Lettre ASCII",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Scoring",
+            "dataType": "int64",
+            "sourceColumn": "Scoring",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "Scoring",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Scoring2",
+            "dataType": "int64",
+            "sourceColumn": "Scoring2",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "Scoring2",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Scoring3",
+            "dataType": "int64",
+            "sourceColumn": "Scoring3",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "Scoring3",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "DimClient",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "True"
+          }
+        ]
+      }
+    ],
+    "expressions": [
+      {
+        "name": "DatabaseQuery",
+        "kind": "m",
+        "expression": "let\n    database = {{TDS_Endpoint}}\nin\n    database\n"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      },
+      {
+        "name": "SourceLineageTagType",
+        "value": "DatabaseFullyQualifiedName"
+      }
+    ]
+  }
+}

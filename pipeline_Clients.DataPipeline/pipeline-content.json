@@ -1,0 +1,70 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Copy_0t9",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "annotations": [],
+              "type": "SqlServerTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "DistrisysDWH",
+                "table": "DimClient",
+                "database": "DistrisysDW"
+              },
+              "externalReferences": {
+                "connection": "742391b5-d97d-44b6-8ba2-172f3531ef39"
+              }
+            }
+          },
+          "sink": {
+            "type": "DataWarehouseSink",
+            "allowCopyCommand": true,
+            "copyCommandSettings": {},
+            "datasetSettings": {
+              "annotations": [],
+              "linkedService": {
+                "name": "Distrisys",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "7crsmdobjztudpnvcmcqizkxwi-s5di4qp4clyujfcsaewkj2xioi.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "fa2f130e-29d2-4a2b-9825-0a891cfe596e",
+                    "workspaceId": "418e4697-12fc-44f1-9452-012ca4eae872"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "DimClient"
+              }
+            }
+          },
+          "enableStaging": true
+        }
+      }
+    ],
+    "parameters": {
+      "source": {
+        "type": "string",
+        "defaultValue": "AAA"
+      }
+    }
+  }
+}
